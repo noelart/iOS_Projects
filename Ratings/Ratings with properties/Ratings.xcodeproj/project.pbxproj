@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81AC506D18871BE400A6B7E1 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81AC506C18871BE400A6B7E1 /* PlayerCell.m */; };
+		81AC507018872A0900A6B7E1 /* PlayerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81AC506F18872A0900A6B7E1 /* PlayerDetailsViewController.m */; };
 		81BB65B11883EE25006F119D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BB65B01883EE25006F119D /* Foundation.framework */; };
 		81BB65B31883EE25006F119D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BB65B21883EE25006F119D /* CoreGraphics.framework */; };
 		81BB65B51883EE25006F119D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BB65B41883EE25006F119D /* UIKit.framework */; };
@@ -60,6 +62,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		81AC506B18871BE400A6B7E1 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerCell.h; path = ../PlayerCell.h; sourceTree = "<group>"; };
+		81AC506C18871BE400A6B7E1 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerCell.m; path = ../PlayerCell.m; sourceTree = "<group>"; };
+		81AC506E18872A0900A6B7E1 /* PlayerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerDetailsViewController.h; sourceTree = "<group>"; };
+		81AC506F18872A0900A6B7E1 /* PlayerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerDetailsViewController.m; sourceTree = "<group>"; };
 		81BB65AD1883EE25006F119D /* Ratings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ratings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81BB65B01883EE25006F119D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		81BB65B21883EE25006F119D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -167,6 +173,8 @@
 		81BB65B61883EE25006F119D /* Ratings */ = {
 			isa = PBXGroup;
 			children = (
+				81AC506B18871BE400A6B7E1 /* PlayerCell.h */,
+				81AC506C18871BE400A6B7E1 /* PlayerCell.m */,
 				81BB65BF1883EE25006F119D /* AppDelegate.h */,
 				81BB65C01883EE25006F119D /* AppDelegate.m */,
 				81BB65C21883EE25006F119D /* Main.storyboard */,
@@ -178,6 +186,8 @@
 				81BB665818849C13006F119D /* PlayersViewController.m */,
 				81BB665A18849CAE006F119D /* Player.h */,
 				81BB665B18849CAE006F119D /* Player.m */,
+				81AC506E18872A0900A6B7E1 /* PlayerDetailsViewController.h */,
+				81AC506F18872A0900A6B7E1 /* PlayerDetailsViewController.m */,
 			);
 			path = Ratings;
 			sourceTree = "<group>";
@@ -367,7 +377,9 @@
 				81BB665918849C13006F119D /* PlayersViewController.m in Sources */,
 				81BB65C11883EE25006F119D /* AppDelegate.m in Sources */,
 				81BB65BD1883EE25006F119D /* main.m in Sources */,
+				81AC506D18871BE400A6B7E1 /* PlayerCell.m in Sources */,
 				81BB665C18849CAE006F119D /* Player.m in Sources */,
+				81AC507018872A0900A6B7E1 /* PlayerDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

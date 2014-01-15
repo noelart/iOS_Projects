@@ -8,6 +8,7 @@
 
 #import "PlayersViewController.h"
 #import "Player.h"
+#import "PlayerCell.h"
 
 @interface PlayersViewController ()
 
@@ -74,20 +75,45 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayerCell"];
+    PlayerCell *cell = (PlayerCell *)[tableView dequeueReusableCellWithIdentifier:@"PlayerCell"];
     
     Player *player = (self.players)[indexPath.row];
-    
-    UILabel *nameLabel = (UILabel *)[cell viewWithTag:100];
-    nameLabel.text = player.name;
-    
-    UILabel *gameLabel = (UILabel *)[cell viewWithTag:101];
-    gameLabel.text = player.game;
-    
-    UIImageView *ratingImageView = (UIImageView *)[cell viewWithTag:102];
-    ratingImageView.image = [self imageForRating:player.rating];
+    cell.nameLabel.text = player.name;
+    cell.gameLabel.text = player.game;
+    cell.ratingImageView.image = [self imageForRating:player.rating];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.players removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+
+#pragma mark - PlayerDetailslViewControllerDelegate
+
+- (void)playerDetailsViewControllerDidCancel:(PlayerDetailsViewController *)controller
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)playerDetailsViewControllerDidSave:(PlayerDetailsViewController *)controller
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - Segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"AddPlayer"]) {
+        UINavigationController *navigationcontroller = segue.destinationViewController;
+        PlayerDetailsViewController *playerDetailsViewController = [navigationcontroller viewControllers][0];
+        playerDetailsViewController.delegate = self;
+    }
 }
 
 /*
@@ -99,19 +125,7 @@
 }
 */
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+
 
 /*
 // Override to support rearranging the table view.
