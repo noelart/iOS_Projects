@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="00q-vd-Rlw"/>
+                        <viewControllerLayoutGuide type="bottom" id="pSO-aR-eaR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xsc-al-i46">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="486"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A1R-pc-Yh0">
+                                        <rect key="frame" x="8" y="495" width="320" height="193"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ig-gN-vHa">
+                                <rect key="frame" x="37" y="517" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vap-fJ-CrN">
+                                <rect key="frame" x="101" y="517" width="201" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="setLightSourceAlphaValue:" destination="vXZ-lx-hvc" eventType="valueChanged" id="3aR-7h-77m"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4Ig-gN-vHa" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="37" id="1PN-Pr-c5n"/>
+                            <constraint firstItem="Xsc-al-i46" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="2nn-Aa-3ML"/>
+                            <constraint firstItem="pSO-aR-eaR" firstAttribute="top" secondItem="Xsc-al-i46" secondAttribute="bottom" constant="82" id="610-t3-oRt"/>
+                            <constraint firstAttribute="trailing" secondItem="Xsc-al-i46" secondAttribute="trailing" id="6kd-9j-Rh6"/>
+                            <constraint firstItem="Xsc-al-i46" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="LWX-uz-CAe"/>
+                            <constraint firstItem="vap-fJ-CrN" firstAttribute="leading" secondItem="4Ig-gN-vHa" secondAttribute="trailing" constant="17" id="NrA-NZ-CHd"/>
+                            <constraint firstItem="pSO-aR-eaR" firstAttribute="top" secondItem="vap-fJ-CrN" secondAttribute="bottom" constant="18" id="Sw0-qG-F0p"/>
+                            <constraint firstItem="4Ig-gN-vHa" firstAttribute="top" secondItem="Xsc-al-i46" secondAttribute="bottom" constant="31" id="b2g-WD-Owp"/>
+                            <constraint firstAttribute="trailing" secondItem="vap-fJ-CrN" secondAttribute="trailing" constant="20" id="dNK-rQ-jWl"/>
+                            <constraint firstItem="vap-fJ-CrN" firstAttribute="top" secondItem="Xsc-al-i46" secondAttribute="bottom" constant="31" id="g3S-hY-qni"/>
+                            <constraint firstItem="pSO-aR-eaR" firstAttribute="top" secondItem="4Ig-gN-vHa" secondAttribute="bottom" constant="20" id="uv3-8D-X5B"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="brightnessSlider" destination="vap-fJ-CrN" id="x4x-mb-Av3"/>
+                        <outlet property="lightSource" destination="Xsc-al-i46" id="IUG-vc-nb8"/>
+                        <outlet property="onOffSwitch" destination="4Ig-gN-vHa" id="PUc-4s-7ZP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
