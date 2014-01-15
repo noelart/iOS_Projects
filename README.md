@@ -1,1 +1,1 @@
-These are all the iOS projects currently open
+Currently working on the Ratings app.
