@@ -7,8 +7,11 @@
 //
 
 #import "PlayerDetailsViewController.h"
+#import "Player.h"
 
-@interface PlayerDetailsViewController ()
+@interface PlayerDetailsViewController ()<UITextFieldDelegate>
+
+@property (nonatomic, copy) NSString *game;
 
 @end
 
@@ -23,15 +26,22 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if ((self = [super initWithCoder:aDecoder])) {
+        NSLog(@"init PlayerDetailsViewController");
+        _game = @"Chess";
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.title = NSLocalizedString(@"Add Player", nil);
+    self.detailLabel.text = _game;
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,85 +58,46 @@
 
 - (IBAction)done:(id)sender
 {
-    [self.delegate playerDetailsViewControllerDidSave:self];
-}
-
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    Player *player = [[Player alloc]init];
+    player.name = self.nameTextField.text;
+    player.game = _game;
+    player.rating = 1;
     
-    // Configure the cell...
-    
-    return cell;
+    [self.delegate playerDetailsViewController:self didAddPlayer:player];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
+    if (indexPath.section == 0) {
+        [self.nameTextField becomeFirstResponder];
+    }
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.nameTextField resignFirstResponder];
     return YES;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - GamePickerViewControllerDelegate
+
+- (void)gamePickerViewController:(GamePickerViewController *)controller didSelectGame:(NSString *)game
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    _game = game;
+    
+    self.detailLabel.text = game;
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"PickGame"]) {
+        GamePickerViewController *gamePickerViewController = segue.destinationViewController;
+        gamePickerViewController.delegate = self;
+        gamePickerViewController.game = self.game;
+    }
 }
-
- */
-
 @end

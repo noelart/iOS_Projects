@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81A0733C1888964D00FE89BA /* GamePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A0733B1888964D00FE89BA /* GamePickerViewController.m */; };
 		81AC506D18871BE400A6B7E1 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81AC506C18871BE400A6B7E1 /* PlayerCell.m */; };
 		81AC507018872A0900A6B7E1 /* PlayerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81AC506F18872A0900A6B7E1 /* PlayerDetailsViewController.m */; };
 		81BB65B11883EE25006F119D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BB65B01883EE25006F119D /* Foundation.framework */; };
@@ -62,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		81A0733A1888964D00FE89BA /* GamePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePickerViewController.h; sourceTree = "<group>"; };
+		81A0733B1888964D00FE89BA /* GamePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePickerViewController.m; sourceTree = "<group>"; };
 		81AC506B18871BE400A6B7E1 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerCell.h; path = ../PlayerCell.h; sourceTree = "<group>"; };
 		81AC506C18871BE400A6B7E1 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerCell.m; path = ../PlayerCell.m; sourceTree = "<group>"; };
 		81AC506E18872A0900A6B7E1 /* PlayerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerDetailsViewController.h; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 				81BB665B18849CAE006F119D /* Player.m */,
 				81AC506E18872A0900A6B7E1 /* PlayerDetailsViewController.h */,
 				81AC506F18872A0900A6B7E1 /* PlayerDetailsViewController.m */,
+				81A0733A1888964D00FE89BA /* GamePickerViewController.h */,
+				81A0733B1888964D00FE89BA /* GamePickerViewController.m */,
 			);
 			path = Ratings;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 				81BB665918849C13006F119D /* PlayersViewController.m in Sources */,
 				81BB65C11883EE25006F119D /* AppDelegate.m in Sources */,
 				81BB65BD1883EE25006F119D /* main.m in Sources */,
+				81A0733C1888964D00FE89BA /* GamePickerViewController.m in Sources */,
 				81AC506D18871BE400A6B7E1 /* PlayerCell.m in Sources */,
 				81BB665C18849CAE006F119D /* Player.m in Sources */,
 				81AC507018872A0900A6B7E1 /* PlayerDetailsViewController.m in Sources */,

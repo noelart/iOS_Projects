@@ -28,12 +28,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.title = NSLocalizedString(@"Players", nil);
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -101,20 +98,44 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)playerDetailsViewControllerDidSave:(PlayerDetailsViewController *)controller
+- (void)playerDetailsViewController:(PlayerDetailsViewController *)controller didAddPlayer:(Player *)player
 {
+    [self.players addObject:player];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:([self.players count] -1) inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+#pragma mark - Saving
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if ((self = [super initWithCoder:aDecoder])) {
+        NSLog(@"init PlayerDetailsViewController");
+    }
+    return self;
+
+}
+
+- (void)dealloc
+{
+    NSLog(@"dealloc PlayersDetailViewcontroller");
+}
+    
+
 #pragma mark - Segue
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"AddPlayer"]) {
         UINavigationController *navigationcontroller = segue.destinationViewController;
         PlayerDetailsViewController *playerDetailsViewController = [navigationcontroller viewControllers][0];
-        playerDetailsViewController.delegate = self;
+        playerDetailsViewController.delegate = self; //destination.delegate = self
     }
 }
+
+
 
 /*
 // Override to support conditional editing of the table view.
