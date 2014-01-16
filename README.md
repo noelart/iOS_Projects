@@ -1,1 +1,1 @@
-Currently working on the Ratings app.
+Completed first part of Ratings app.
